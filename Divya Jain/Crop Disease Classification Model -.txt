@@ -1,0 +1,44 @@
+Crop Disease Classification Model - Documentation
+--------------------------------------------------
+
+ Description:
+This model is trained using a RandomForestClassifier to predict the type of disease affecting a crop, based on environmental conditions and crop type.
+
+ Input Features:
+The model expects a preprocessed (label-encoded and scaled) array with the following features:
+1. crop_type (encoded as integer)
+2. temperature (Celsius)
+3. humidity (%)
+4. soil_moisture
+5. rainfall (mm)
+6. pH_level
+
+Example Input:
+[0, 25.4, 80.2, 30.1, 10.3, 6.8]
+
+ Output:
+The model outputs a predicted class label such as:
+- rust
+- leaf_blight
+- healthy
+
+ Files Included:
+- crop_disease_model.pkl → Trained model (via joblib)
+- model_info.txt → This documentation
+
+ Example Code to Use the Model:
+```python
+import joblib
+import numpy as np
+pandas
+scikit-learn
+matplotlib (used during training for visualization)
+seaborn (used during training for visualization)
+
+
+# Input (after label encoding & scaling)
+input_data = np.array([[0, 25.4, 80.2, 30.1, 10.3, 6.8]])
+
+# Predict
+prediction = model.predict(input_data)
+print("Predicted disease label:", prediction)
