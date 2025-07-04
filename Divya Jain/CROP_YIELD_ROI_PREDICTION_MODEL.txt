@@ -1,0 +1,79 @@
+Model: Crop ROI Prediction using Random Forest Regressor
+
+This machine learning model predicts the Return on Investment (ROI) for agricultural crops based on environmental and agronomic features.
+
+--------------------------------------------------------
+INPUT FEATURES (9 total):
+--------------------------------------------------------
+1. Crop_encoded         - Encoded value of the crop name
+2. State_encoded        - Encoded value of the state name
+3. Season_encoded       - Encoded value of the season
+4. Area                 - Area of cultivation (hectares)
+5. Annual_Rainfall      - Annual rainfall (in mm)
+6. Fertilizer           - Fertilizer used (in kg or relevant units)
+7. Pesticide            - Pesticide used
+8. Yield                - Crop yield (quintals per hectare)
+9. Revenue              - Revenue calculated as Yield × Market_Price
+
+--------------------------------------------------------
+OUTPUT:
+--------------------------------------------------------
+- Predicted ROI (%): Return on Investment calculated as a percentage.
+
+--------------------------------------------------------
+EXAMPLE INPUT (JSON format):
+--------------------------------------------------------
+{
+    "Crop_encoded": 2,
+    "State_encoded": 5,
+    "Season_encoded": 1,
+    "Area": 2.5,
+    "Annual_Rainfall": 450.0,
+    "Fertilizer": 50.0,
+    "Pesticide": 3.0,
+    "Yield": 20.0,
+    "Revenue": 65000.0
+}
+
+Example Output:
+{
+    "Predicted_ROI": 14.72
+}
+
+--------------------------------------------------------
+FILES NEEDED:
+--------------------------------------------------------
+1. `roi_predictor.pkl`       → Trained RandomForestRegressor model
+2. `requirements.txt`        → List of libraries to install
+3. `model_description.txt`   → This file
+4. `predicted_results.csv`   → Output file (optional)
+5. `crop_yield.csv`          → Input dataset (optional, for retraining)
+6. `label_encoders.pkl`      → (Optional if you're saving encoders for API use)
+
+--------------------------------------------------------
+REQUIRED PYTHON LIBRARIES:
+--------------------------------------------------------
+Install these with:
+
+    pip install -r requirements.txt
+
+Contents of `requirements.txt`:
+
+    pandas
+    scikit-learn
+    joblib
+    numpy
+
+--------------------------------------------------------
+NOTES:
+--------------------------------------------------------
+- The encoding of Crop, State, and Season is done using `LabelEncoder` from scikit-learn.
+- Make sure to use the **same encoders** (or mapping) at inference time for consistent results.
+- If deploying an API, ensure you either save and load the encoders (e.g., with `joblib.dump(le_crop, 'le_crop.pkl')`) or reapply the same encoding logic manually.
+
+--------------------------------------------------------
+AUTHOR:
+--------------------------------------------------------
+DIVYA JAIN
+Intern Team 20
+Project: Agricultural Investment Recommendation
