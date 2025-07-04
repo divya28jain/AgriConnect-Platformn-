@@ -1,0 +1,46 @@
+Model Name: Investment Oppotunities
+
+Overview:
+This is a Random Forest Classifier trained to predict investment recommendations for agricultural crop data based on features such as estimated revenue, profit, ROI, and risk index.
+
+Input:
+The model takes the following 6 input features:
+1. Crop_Name (encoded as an integer)
+2. State (encoded as an integer)
+3. Estimated_Revenue (float)
+4. Estimated_Profit (float)
+5. Calculated_ROI_% (float)
+6. Risk_Index (float)
+
+Output:
+The model predicts the Investment Recommendation as a string label:
+- "Low"
+- "Moderate"
+- "High"
+- "Very High"
+
+Example Input:
+[2, 6, 590000.0, 545000.0, 1080.5, 0.17]
+(Encoded: Crop_Name=Wheat, State=Punjab)
+
+Example Output:
+"Very High"
+
+Note:
+Use `label_encoders.pkl` to encode Crop_Name and State from string to integer.
+Use `target_encoder.pkl` to decode model predictions from integer to label.
+
+------------------------------------------------------------
+Required Python Libraries:
+( install with `pip install -r requirements.txt`)
+
+pandas  
+numpy  
+scikit-learn  
+openpyxl  
+joblib  
+
+------------------------------------------------------------
+Author:
+Name: Divya Jain  
+Team - 20  
